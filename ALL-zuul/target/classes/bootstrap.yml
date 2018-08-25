@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: all-zuul
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: all-config-server
+      profile: dev   # all-zuul-dev.yml
+server:
+  port: 9000
+management:
+  security:
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+#路由转发规则，如果路径还能有其他springboot的service-id，则会自动跳转到service-id下面
+#例如 http://localhost:9000/all-client/gp 则会转发到 service-id 为all-client的服务下
+zuul:
+  routes:
+    sale: #路由规则名称
+      path: /sale/**
+      serviceId: spring-zuul-sale
+    spring-zuul-sale:
+      path: /sale/**
+    abc:
+      path: /sale/**
+      url: spring-zuul-sale
+    routeTest:
+      path: /routeTest/163
+      url: http://www.baidu.com/
+    route163:
+      url: http://www.baidu.com/
+    helloRoute:
+      path: /test/**
+      url: forward:/source/hello

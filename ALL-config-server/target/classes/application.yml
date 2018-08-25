@@ -1,0 +1,22 @@
+server:
+  port: 8899
+spring:
+  application:
+    name: all-config-server
+  profiles:
+    active: subversion
+  cloud:
+    config:
+      server:
+        svn:
+          uri: https://tlw-PC:8039/svn/CloudRepository
+          username: cloud
+          password: 123456
+        default-label: mycloudconfig  #这个就会定位到uri+mycloudconfig文件夹下面
+management:
+  security:
+    enabled: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

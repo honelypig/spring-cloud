@@ -1,0 +1,18 @@
+management:
+  security:
+    enabled: false
+spring:
+  application:
+    name: all-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: all-config-server #这是指向获取svn配置文件的项目那spring.application.name
+      profile: dev   # all-client-dev.yml
+    # name: config-client2 # config-client2-dev.yml （spring.cloud.name）
+   # 没有 cloud.config.name，也没有 application.name，则读取 application-dev.yml
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
