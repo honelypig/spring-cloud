@@ -1,0 +1,5 @@
+svn服务器   VisualSVN-Server-3.9.1-x64.msi
+svn客户端    TortoiseSVN-1.10.1.28295-x64-svn-1.10.2.msi
+svn语言包  LanguagePack_1.10.1.28295-x64-zh_CN.msi
+rabbitmq服务器   rabbitmq-server-3.7.7.exe
+Erlang otp_win64_21.0.1.exe  由于RabbitMQ是用Erlang编写的，所以在安装RabbitMQ之前要先安装Erlang   
